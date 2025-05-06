@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import { Navbar } from '@/components/Layout/Navbar';
 // import { SearchPage } from '@/pages/SearchPage';
