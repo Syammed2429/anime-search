@@ -1,32 +1,25 @@
-import * as React from "react";
 import {
   ChevronLeft,
   ChevronRight,
-  MoreHorizontal,
   ChevronsRight,
+  MoreHorizontal,
 } from "lucide-react";
+import * as React from "react";
 
-import { cn } from "@/lib/utils";
 import {
   Button,
   type ButtonProps,
   buttonVariants,
 } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 
 interface PaginationProps {
   page: number;
   totalPages: number;
   onPageChange: (page: number) => void;
   isMobile?: boolean;
-  pageSize: number;
-  onPageSizeChange: (pageSize: number) => void;
+  pageSize?: number;
+  onPageSizeChange?: (pageSize: number) => void;
 }
 
 export const Pagination = ({
@@ -34,8 +27,6 @@ export const Pagination = ({
   totalPages,
   onPageChange,
   isMobile = false,
-  pageSize = 20,
-  onPageSizeChange = () => {},
 }: PaginationProps) => {
   // Generate page numbers to display
   const getPageNumbers = () => {
@@ -91,7 +82,7 @@ export const Pagination = ({
 
   return (
     <div className='flex items-center space-x-1 sm:space-x-2'>
-      {!isMobile && (
+      {/* {!isMobile && (
         <div className='flex items-center mr-2'>
           <span className='text-xs sm:text-sm mr-2'>Show:</span>
           <Select
@@ -110,7 +101,7 @@ export const Pagination = ({
             </SelectContent>
           </Select>
         </div>
-      )}
+      )} */}
 
       <Button
         variant='outline'
