@@ -11,6 +11,7 @@ import { useSearchAnime } from "@/hooks/use-anime";
 import { useMobile } from "@/hooks/use-mobile";
 import { useDebounce } from "@/hooks/use-debounce";
 import { Pagination } from "@/components/Search/Pagination";
+import { ErrorImage } from "@/components/ui/error-image";
 
 export const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -61,6 +62,52 @@ export const SearchPage = () => {
       ));
   };
 
+  if (isLoading) {
+    return (
+      <>
+        <div className='grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-6'>
+          {renderSkeletons()}
+        </div>
+        <div className='sr-only' aria-live='polite'>
+          Loading anime...
+        </div>
+      </>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className='text-center py-10 space-y-4'>
+        <p className='text-destructive font-medium'>
+          {error instanceof Error && error.message.includes("429")
+            ? "API rate limit exceeded. The Jikan API has a limit of 3 requests per second."
+            : `Error: ${
+                error instanceof Error ? error.message : "Failed to fetch anime"
+              }`}
+        </p>
+        <p className='text-muted-foreground text-sm'>
+          {error instanceof Error && error.message.includes("429")
+            ? "Please wait a moment before trying again."
+            : "There was a problem fetching the anime data."}
+        </p>
+        <Button
+          variant='outline'
+          onClick={() => {
+            // Force refetch the current page
+            setPage((current) => {
+              // This trick forces a re-render even if the page number is the same
+              setPage(0);
+              return current;
+            });
+          }}
+        >
+          <RefreshCw className='h-4 w-4 mr-2' />
+          Try Again
+        </Button>
+      </div>
+    );
+  }
+
   return (
     <motion.div
       className='container mx-auto py-4 sm:py-6 md:py-8 px-3 sm:px-4'
@@ -81,47 +128,7 @@ export const SearchPage = () => {
         </div>
       </div>
 
-      {isLoading ? (
-        <>
-          <div className='grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-6'>
-            {renderSkeletons()}
-          </div>
-          <div className='sr-only' aria-live='polite'>
-            Loading anime...
-          </div>
-        </>
-      ) : isError ? (
-        <div className='text-center py-10 space-y-4'>
-          <p className='text-destructive font-medium'>
-            {error instanceof Error && error.message.includes("429")
-              ? "API rate limit exceeded. The Jikan API has a limit of 3 requests per second."
-              : `Error: ${
-                  error instanceof Error
-                    ? error.message
-                    : "Failed to fetch anime"
-                }`}
-          </p>
-          <p className='text-muted-foreground text-sm'>
-            {error instanceof Error && error.message.includes("429")
-              ? "Please wait a moment before trying again."
-              : "There was a problem fetching the anime data."}
-          </p>
-          <Button
-            variant='outline'
-            onClick={() => {
-              // Force refetch the current page
-              setPage((current) => {
-                // This trick forces a re-render even if the page number is the same
-                setPage(0);
-                return current;
-              });
-            }}
-          >
-            <RefreshCw className='h-4 w-4 mr-2' />
-            Try Again
-          </Button>
-        </div>
-      ) : data?.data && Array.isArray(data.data) && data.data.length === 0 ? (
+      {data?.data && Array.isArray(data.data) && data.data.length === 0 ? (
         <div className='text-center py-10 px-4 max-w-md mx-auto'>
           <div className='mb-6 relative'>
             <motion.div
@@ -129,13 +136,7 @@ export const SearchPage = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <img
-                src='/src/assets/images/404.svg'
-                alt='People looking confused with question marks'
-                className='anime-card-image w-full h-60    '
-                loading='lazy'
-                style={{ objectFit: "contain" }}
-              />
+              <ErrorImage />
             </motion.div>
           </div>
           <motion.div

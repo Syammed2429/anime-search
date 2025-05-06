@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ErrorImage } from "@/components/ui/error-image";
 
 export const DetailsPage = () => {
   const { id } = useParams<{ id: string | undefined }>();
@@ -70,27 +71,11 @@ export const DetailsPage = () => {
     );
   }
 
-  if (isError) {
+  if (isError || !anime) {
     return (
       <div className='container mx-auto py-4 sm:py-8 px-3 sm:px-4 text-center'>
-        <img
-          src='/src/assets/images/404.svg'
-          alt='People looking confused with question marks'
-          className='anime-card-image w-full h-60    '
-          loading='lazy'
-          style={{ objectFit: "contain" }}
-        />
-        <Button asChild className='mt-4'>
-          <Link to='/'>Go Back</Link>
-        </Button>
-      </div>
-    );
-  }
-
-  if (!anime) {
-    return (
-      <div className='container mx-auto py-4 sm:py-8 px-3 sm:px-4 text-center'>
-        <p>Anime not found</p>
+        <ErrorImage />
+        {!anime && <p>Anime not found</p>}
         <Button asChild className='mt-4'>
           <Link to='/'>Go Back</Link>
         </Button>
