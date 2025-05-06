@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/Layout/Navbar";
-import { QueryProvider } from "./lib/query-provider";
-import { SearchPage } from "./pages/SearchPage";
+import NotFoundPage from "./components/Search/NotFoundPage";
 import { HoveredAnimeProvider } from "./hooks/use-hovered-anime";
+import { QueryProvider } from "./lib/query-provider";
 import { DetailsPage } from "./pages/DetailsPage";
+import { SearchPage } from "./pages/SearchPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<SearchPage />} />
                 <Route path='/anime/:id' element={<DetailsPage />} />
+                <Route path='*' element={<NotFoundPage />} />
               </Routes>
             </main>
           </HoveredAnimeProvider>
