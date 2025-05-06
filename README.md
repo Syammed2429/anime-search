@@ -2,6 +2,8 @@
 
 A modern anime discovery platform built with React and TypeScript, providing a seamless experience for exploring and discovering anime content.
 
+🌐 **[Live Preview](https://anime-search-smoky.vercel.app/)**
+
 ![Tech Stack](https://img.shields.io/badge/React-18.3.1-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
