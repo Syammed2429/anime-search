@@ -21,7 +21,6 @@ function App() {
           </HoveredAnimeProvider>
         </div>
       </BrowserRouter>
-      s
     </QueryProvider>
   );
 }
