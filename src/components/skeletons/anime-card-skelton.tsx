@@ -3,7 +3,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 export const AnimeCardSkeleton = () => {
   return (
-    <Card className='h-full overflow-hidden'>
+    <Card className='h-full overflow-hidden bg-gray-300/40 '>
       <div className='relative aspect-[3/4] w-full overflow-hidden'>
         <Skeleton className='absolute inset-0' />
       </div>
