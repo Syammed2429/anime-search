@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AnimeCardSkeleton } from "@/components/skeletons/anime-card-skelton";
 import { AnimeCard } from "@/components/cards/anime-card";
-import { Pagination } from "@/lib/pagination";
 import { useSearchAnime } from "@/hooks/use-anime";
 import { useMobile } from "@/hooks/use-mobile";
 import { useDebounce } from "@/hooks/use-debounce";
+import { Pagination } from "@/components/Search/Pagination";
 
 export const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
