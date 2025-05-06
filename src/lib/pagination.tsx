@@ -102,7 +102,7 @@ export const Pagination = ({
               <SelectValue placeholder={pageSize} />
             </SelectTrigger>
             <SelectContent>
-              {[10, 20, 30, 50].map((size) => (
+              {[5, 10, 15, 20].map((size) => (
                 <SelectItem key={size} value={String(size)}>
                   {size}
                 </SelectItem>
@@ -168,27 +168,6 @@ export const Pagination = ({
         >
           <ChevronsRight className='h-4 w-4' />
         </Button>
-      )}
-
-      {!isMobile && (
-        <Select
-          value={page.toString()}
-          onValueChange={(value) => onPageChange(Number.parseInt(value))}
-        >
-          <SelectTrigger className='w-14 sm:w-16 text-xs sm:text-sm h-8 sm:h-9'>
-            <SelectValue placeholder={page} />
-          </SelectTrigger>
-          <SelectContent>
-            {Array.from(
-              { length: Math.min(totalPages, 50) },
-              (_, i) => i + 1
-            ).map((p) => (
-              <SelectItem key={p} value={p.toString()}>
-                {p}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
       )}
     </div>
   );
