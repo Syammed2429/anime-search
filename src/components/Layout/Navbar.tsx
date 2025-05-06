@@ -8,24 +8,13 @@ export const Navbar = () => {
         <div className='flex items-center'>
           <Link to='/' className='flex items-center space-x-2'>
             <div className='bg-primary/10 p-1.5 rounded-md'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                className='w-5 h-5 text-primary'
-              >
-                <circle cx='12' cy='12' r='10' />
-                <path d='M8 12h8' />
-                <path d='M12 8v8' />
-              </svg>
+              <img
+                src='/favicon-32x32.png'
+                alt='AniVerse Logo'
+                className='w-5 h-5'
+              />
             </div>
-            <span className='font-bold text-lg hidden sm:inline-block'>
-              AnimeDB
-            </span>
+            <span className='font-bold text-lg inline-block'>AniVerse</span>
           </Link>
         </div>
       </div>
