@@ -130,9 +130,9 @@ export const SearchPage = () => {
               transition={{ duration: 0.5 }}
             >
               <img
-                src='/images/no-results.png'
+                src='/src/assets/images/404.svg'
                 alt='People looking confused with question marks'
-                className='anime-card-image w-full'
+                className='anime-card-image w-full h-60    '
                 loading='lazy'
                 style={{ objectFit: "contain" }}
               />

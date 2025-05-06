@@ -26,7 +26,7 @@ import { Link, useParams } from "react-router-dom";
 export const DetailsPage = () => {
   const { id } = useParams<{ id: string | undefined }>();
 
-  const { data: anime, isLoading, isError, error } = useAnimeDetails(id ?? "");
+  const { data: anime, isLoading, isError } = useAnimeDetails(id ?? "");
   const { data: recommendations, isLoading: isLoadingRecommendations } =
     useAnimeRecommendations(id ?? "");
   const { setHoveredAnime } = useHoveredAnime();
@@ -73,12 +73,13 @@ export const DetailsPage = () => {
   if (isError) {
     return (
       <div className='container mx-auto py-4 sm:py-8 px-3 sm:px-4 text-center'>
-        <p className='text-destructive'>
-          Error:{" "}
-          {error instanceof Error
-            ? error.message
-            : "Failed to fetch anime details"}
-        </p>
+        <img
+          src='/src/assets/images/404.svg'
+          alt='People looking confused with question marks'
+          className='anime-card-image w-full h-60    '
+          loading='lazy'
+          style={{ objectFit: "contain" }}
+        />
         <Button asChild className='mt-4'>
           <Link to='/'>Go Back</Link>
         </Button>
