@@ -1,6 +1,8 @@
-import { BrowserRouter, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/Layout/Navbar";
 import { QueryProvider } from "./lib/query-provider";
+import { SearchPage } from "./pages/SearchPage";
+import { HoveredAnimeProvider } from "./hooks/use-hovered-anime";
 
 function App() {
   return (
@@ -8,11 +10,16 @@ function App() {
       <BrowserRouter>
         <div className='min-h-screen bg-background'>
           <Navbar />
-          <main>
-            <Routes></Routes>
-          </main>
+          <HoveredAnimeProvider>
+            <main>
+              <Routes>
+                <Route path='/' element={<SearchPage />} />
+              </Routes>
+            </main>
+          </HoveredAnimeProvider>
         </div>
       </BrowserRouter>
+      s
     </QueryProvider>
   );
 }
