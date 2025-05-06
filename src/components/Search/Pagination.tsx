@@ -82,27 +82,6 @@ export const Pagination = ({
 
   return (
     <div className='flex items-center space-x-1 sm:space-x-2'>
-      {/* {!isMobile && (
-        <div className='flex items-center mr-2'>
-          <span className='text-xs sm:text-sm mr-2'>Show:</span>
-          <Select
-            value={String(pageSize)}
-            onValueChange={(value) => onPageSizeChange(Number(value))}
-          >
-            <SelectTrigger className='w-[70px] h-8 sm:h-9 text-xs sm:text-sm'>
-              <SelectValue placeholder={pageSize} />
-            </SelectTrigger>
-            <SelectContent>
-              {[5, 10, 15, 20].map((size) => (
-                <SelectItem key={size} value={String(size)}>
-                  {size}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-      )} */}
-
       <Button
         variant='outline'
         size='icon'
@@ -130,7 +109,10 @@ export const Pagination = ({
               onClick={() =>
                 typeof pageNumber === "number" && onPageChange(pageNumber)
               }
-              className={cn("h-7 w-7 sm:h-8 sm:w-8", isMobile && "text-xs")}
+              className={cn(
+                "min-w-[1.75rem] sm:min-w-[2rem] h-7 sm:h-8 px-1",
+                isMobile && "text-xs"
+              )}
             >
               {pageNumber}
             </Button>
