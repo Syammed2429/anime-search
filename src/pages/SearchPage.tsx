@@ -6,7 +6,7 @@ import { Search, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AnimeCardSkeleton } from "@/components/skeletons/anime-card-skelton";
-import { AnimeCard } from "@/components/cards/anime-card";
+import { AnimeCard } from "@/components/cards/AnimeCard";
 import { useSearchAnime } from "@/hooks/use-anime";
 import { useMobile } from "@/hooks/use-mobile";
 import { useDebounce } from "@/hooks/use-debounce";

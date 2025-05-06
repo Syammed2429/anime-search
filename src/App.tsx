@@ -3,6 +3,7 @@ import { Navbar } from "./components/Layout/Navbar";
 import { QueryProvider } from "./lib/query-provider";
 import { SearchPage } from "./pages/SearchPage";
 import { HoveredAnimeProvider } from "./hooks/use-hovered-anime";
+import { DetailsPage } from "./pages/DetailsPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <main>
               <Routes>
                 <Route path='/' element={<SearchPage />} />
+                <Route path='/anime/:id' element={<DetailsPage />} />
               </Routes>
             </main>
           </HoveredAnimeProvider>
