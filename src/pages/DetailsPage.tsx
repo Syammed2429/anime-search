@@ -1,6 +1,6 @@
 import type React from "react";
 
-import { AnimeRecommendationCard } from "@/components/Details/AnimeRecommendation";
+import { AnimeRecommendationCard } from "@/components/cards/AnimeRecommendation";
 import { AnimeDetailsSkeleton } from "@/components/skeletons/anime-details-skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
