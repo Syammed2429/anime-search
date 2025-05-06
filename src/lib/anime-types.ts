@@ -154,3 +154,8 @@ export interface AnimeRecommendation {
 export interface AnimeRecommendationsResponse {
   data: AnimeRecommendation[];
 }
+
+export interface SearchBarProps {
+  onSearch: (query: string) => void;
+  initialValue?: string;
+}

@@ -12,9 +12,9 @@ const NotFoundPage = () => {
         404 Not Found
       </motion.h1>
       <img
-        src='/src/assets/images/404.svg'
+        src='/images/404.svg'
         alt='People looking confused with question marks'
-        className='anime-card-image w-full h-60    '
+        className='anime-card-image w-full h-60'
         loading='lazy'
         style={{ objectFit: "contain" }}
       />
