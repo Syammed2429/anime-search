@@ -74,11 +74,32 @@ export const DetailsPage = () => {
   if (isError || !anime) {
     return (
       <div className='container mx-auto py-4 sm:py-8 px-3 sm:px-4 text-center'>
-        <ErrorImage />
-        {!anime && <p>Anime not found</p>}
-        <Button asChild className='mt-4'>
-          <Link to='/'>Go Back</Link>
-        </Button>
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <ErrorImage />
+        </motion.div>
+        {!anime && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+            className='mt-4 text-lg text-muted-foreground'
+          >
+            Anime not found
+          </motion.p>
+        )}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
+          <Button asChild className='mt-4'>
+            <Link to='/'>Go Back</Link>
+          </Button>
+        </motion.div>
       </div>
     );
   }
