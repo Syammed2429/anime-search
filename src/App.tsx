@@ -5,6 +5,7 @@ import { QueryProvider } from "./lib/query-provider";
 import { DetailsPage } from "./pages/DetailsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { SearchPage } from "./pages/SearchPage";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               </Routes>
             </main>
           </HoveredAnimeProvider>
+          <Analytics />
         </div>
       </BrowserRouter>
     </QueryProvider>

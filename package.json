@@ -1,7 +1,20 @@
 {
-  "name": "anime-search-app",
+  "name": "aniverse",
+  "description": "A modern anime discovery platform built with React and TypeScript",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "author": {
+    "name": "Dada Khalandar",
+    "url": "https://github.com/syammed2429"
+  },
+  "keywords": [
+    "anime",
+    "react",
+    "typescript",
+    "jikan-api",
+    "anime-database",
+    "anime-search"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,6 +30,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@tanstack/react-query": "^5.8.4",
     "@tanstack/react-query-devtools": "^5.75.4",
+    "@vercel/analytics": "^1.5.0",
     "axios": "^1.9.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
