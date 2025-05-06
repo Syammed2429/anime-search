@@ -41,7 +41,10 @@
 .anime-card-image {
   aspect-ratio: 2/3;
   object-fit: cover;
+  transform: scale(1.01);
   transition: transform 0.2s ease-in-out;
+  image-rendering: -webkit-optimize-contrast;
+  backface-visibility: hidden;
 }
 
 .anime-card:hover .anime-card-image {

@@ -113,7 +113,7 @@ export const AnimeCard = ({ anime, isMobile = false }: AnimeCardProps) => {
 
             <div className='relative aspect-[3/4] w-full overflow-hidden'>
               <img
-                src={anime.images.jpg.image_url || "/placeholder.svg"}
+                src={anime.images.jpg.large_image_url || "/placeholder.svg"}
                 alt={anime.title}
                 className='anime-card-image w-full'
                 loading='lazy'
