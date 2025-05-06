@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-// import { Navbar } from '@/components/Layout/Navbar';
-// import { SearchPage } from '@/pages/SearchPage';
-// import { DetailsPage } from '@/pages/DetailsPage';
+import { Navbar } from "./components/Layout/Navbar";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,12 +16,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <div className='min-h-screen bg-background'>
-          {/* <Navbar /> */}
+          <Navbar />
           <main>
-            <Routes>
-              {/* <Route path="/" element={<SearchPage />} /> */}
-              {/* <Route path="/anime/:id" element={<DetailsPage />} /> */}
-            </Routes>
+            <Routes></Routes>
           </main>
         </div>
       </BrowserRouter>
