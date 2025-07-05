@@ -1,6 +1,6 @@
 name: Daily Activity Bot
 
-on:
+"on":
   schedule:
     # Run daily at 12:00 UTC (cron syntax: minute hour day month weekday)
     - cron: '0 12 * * *'
