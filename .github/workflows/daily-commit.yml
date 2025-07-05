@@ -1,0 +1,37 @@
+name: Daily Activity Bot
+
+on:
+  schedule:
+    # Run daily at 12:00 UTC (cron syntax: minute hour day month weekday)
+    - cron: '0 12 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  daily-commit:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Bot"
+    
+    - name: Update activity log
+      run: |
+        echo "$(date '+%Y-%m-%d %H:%M:%S UTC') - Daily activity update" >> .github/activity.log
+        
+    - name: Commit and push changes
+      run: |
+        git add .github/activity.log
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "🤖 Daily activity update - $(date '+%Y-%m-%d')"
+          git push
+        fi
