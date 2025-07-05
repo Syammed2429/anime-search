@@ -84,6 +84,13 @@ Feel free to contribute to this project. Any contributions you make are greatly 
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## Automation
+
+This repository includes an automated daily commit bot that helps maintain GitHub activity. The bot:
+- Runs daily at 12:00 UTC via GitHub Actions
+- Updates the activity log at `.github/activity.md`
+- Creates minimal commits to keep the repository active
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
