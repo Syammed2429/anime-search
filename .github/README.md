@@ -14,7 +14,7 @@ The bot is implemented as a GitHub Actions workflow (`daily-commit.yml`) that:
 ## Files
 
 - `daily-commit.yml` - GitHub Actions workflow configuration
-- `activity.log` - Log file that tracks bot activity
+- `activity.md` - Log file that tracks bot activity
 
 ## Manual Trigger
 

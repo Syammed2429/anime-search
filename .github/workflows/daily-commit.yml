@@ -24,11 +24,11 @@ jobs:
     
     - name: Update activity log
       run: |
-        echo "$(date '+%Y-%m-%d %H:%M:%S UTC') - Daily activity update" >> .github/activity.log
+        echo "$(date '+%Y-%m-%d %H:%M:%S UTC') - Daily activity update" >> .github/activity.md
         
     - name: Commit and push changes
       run: |
-        git add .github/activity.log
+        git add .github/activity.md
         if git diff --staged --quiet; then
           echo "No changes to commit"
         else

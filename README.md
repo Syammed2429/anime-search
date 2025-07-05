@@ -88,7 +88,7 @@ Feel free to contribute to this project. Any contributions you make are greatly 
 
 This repository includes an automated daily commit bot that helps maintain GitHub activity. The bot:
 - Runs daily at 12:00 UTC via GitHub Actions
-- Updates the activity log at `.github/activity.log`
+- Updates the activity log at `.github/activity.md`
 - Creates minimal commits to keep the repository active
 
 ## License
